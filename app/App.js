@@ -12,6 +12,8 @@ const App = createClass({
       windowHeight: $(window).height(),
       dayOfWeek: 1,
       hourOfDay: 0,
+      pickupData: true,
+      dropoffData: true,
       TrafficData: [],
       uberData:[]
     };
@@ -36,22 +38,31 @@ const App = createClass({
       hourOfDay: event.target.value
     });
   },
+  toggleDropoffData(){
+    this.setState({...this.state,
+      dropoffData: !this.state.dropoffData
+    });
+  },
+  togglePickupData(){
+    this.setState({...this.state,
+      pickupData: !this.state.pickupData
+    });
+  },
   render(){
-    const {windowHeight, dayOfWeek, hourOfDay} = this.state;
+    const {windowHeight, dayOfWeek, hourOfDay, pickupData, dropoffData} = this.state;
     return (
       <div className='App'>
         <Nav />
         <MapWrapper height={windowHeight - 61} />
-        const  = this.props;
         <Overlay
           dayOfWeek={dayOfWeek}
           dayOfWeekHandler={this.handleDayOfWeek}
           hourOfDay={hourOfDay}
           hourOfDayHandler={this.handleHourOfDay}
-          pickupData={true}
-          togglePickupData={()=>{}}
-          dropoffData={true}
-          toggleDropoffData={()=>{}}/>
+          pickupData={pickupData}
+          togglePickupData={this.togglePickupData}
+          dropoffData={dropoffData}
+          toggleDropoffData={this.toggleDropoffData} />
       </div>
     );
   }
