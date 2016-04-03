@@ -4,12 +4,12 @@
 
 'use strict';
 
-import uberEvents from './uber.events';
+var uberEvents = require('./uber.events');
 
 // Model events to emiter
 var events = ['save', 'remove'];
 
-export function register(socket) {
+exports.register = function(socket) {
   // Bind model events to socket events
   for (var i = 0, eventsLength = events.length; i < eventsLength; i++) {
     var event = events[i];
@@ -19,7 +19,6 @@ export function register(socket) {
     socket.on('disconnect', removeListener(event, listener));
   }
 }
-
 
 function createListener(event, socket) {
   return function(doc) {

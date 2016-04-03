@@ -16,7 +16,7 @@ module.exports = {
     db: 'test',
     authKey: '',
     maxPoolSize: 10 // Max number of simultaneous DB connections (set to 1 to disable pooling)
-  },
+  }
  
 
 };
