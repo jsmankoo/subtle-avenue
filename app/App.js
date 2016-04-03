@@ -26,13 +26,32 @@ const App = createClass({
       socket.emit('my other event', { my: 'data' });
     });
   },
+  handleDayOfWeek(event){
+    this.setState({...this.state,
+      dayOfWeek: event.target.value
+    });
+  },
+  handleHourOfDay(event){
+    this.setState({...this.state,
+      hourOfDay: event.target.value
+    });
+  },
   render(){
-    const {windowHeight} = this.state;
+    const {windowHeight, dayOfWeek, hourOfDay} = this.state;
     return (
       <div className='App'>
         <Nav />
         <MapWrapper height={windowHeight - 61} />
-        <Overlay />
+        const  = this.props;
+        <Overlay
+          dayOfWeek={dayOfWeek}
+          dayOfWeekHandler={this.handleDayOfWeek}
+          hourOfDay={hourOfDay}
+          hourOfDayHandler={this.handleHourOfDay}
+          pickupData={true}
+          togglePickupData={()=>{}}
+          dropoffData={true}
+          toggleDropoffData={()=>{}}/>
       </div>
     );
   }
