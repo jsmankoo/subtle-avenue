@@ -3,6 +3,10 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var jeet = require('jeet');
+var axis = require('axis');
+var rupture = require('rupture');
+var autoprefixer = require('autoprefixer-stylus');
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -36,12 +40,12 @@ module.exports = {
       query: {
         "presets": ["react", "es2015", "stage-0", "react-hmre"]
       }
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
-      test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+    },{
+      test: /\.styl$/,
+      loader: 'style-loader!css-loader!stylus-loader'
     }]
+  },
+  stylus: {
+    use: [axis(), jeet(), rupture(), autoprefixer()]
   }
 };
