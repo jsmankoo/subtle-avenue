@@ -20,7 +20,7 @@ const App = createClass({
     $(window).resize(()=>this.setState({...this.state,
       windowHeight: $(window).height()
     }));
-    var socket = io('http://localhost:3000/');
+    var socket = io('/');
     socket.on('news', function (data) {
       console.log(data);
       socket.emit('my other event', { my: 'data' });

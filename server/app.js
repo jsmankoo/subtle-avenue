@@ -20,10 +20,7 @@ const config = require('./config/environment');
 var app = express();
 var server = http.createServer(app);
 
-  var io = require('socket.io')(server, {
-    serveClient: (config.env === 'production') ? false : true,
-    path: '/socket.io-client'
-  });
+  var io = require('socket.io')(server);
 
 require('./config/socketio')(io);
 require('./config/express')(app);

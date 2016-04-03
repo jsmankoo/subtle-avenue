@@ -12,8 +12,7 @@ function onDisconnect(socket) {
 }
 
 // When the user connects.. perform this
-function onConnect(socket, io) {
-
+function onConnect(socket) {
 
   // Insert sockets below
   require('../api/uber/uber.socket').register(socket);
@@ -39,10 +38,10 @@ module.exports = function(io) {
     // Call onDisconnect.
     socket.on('disconnect', () => {
       onDisconnect(socket);
-      socket.log('DISCONNECTED');
+      console.log('DISCONNECTED');
     });
     // Call onConnect.
     onConnect(socket, io);
-    //socket.log('CONNECTED');
+    console.log('CONNECTED');
   });
 };
