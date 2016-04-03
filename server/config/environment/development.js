@@ -11,12 +11,12 @@ module.exports = {
   },
     // RethinkDB database config
   dbConfig: {
-    host: 'localhost',
+    host: '10.102.200.112',
     port: 28015,
     db: 'test',
     authKey: '',
     maxPoolSize: 10 // Max number of simultaneous DB connections (set to 1 to disable pooling)
   },
- 
+
 
 };
