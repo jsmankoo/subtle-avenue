@@ -18,10 +18,10 @@ const Overlay = createClass({
             </div>
             <input type='number' value={hourOfDay} onChange={hourOfDayHandler} />
           </div>
-          <div className="PickOff" onClick={togglePickupData}>
+          <div className={`PickOff ${pickupData}`} onClick={togglePickupData} >
             Pick Off
           </div>
-          <div className="DropOff" onClick={toggleDropoffData}>
+          <div className={`DropOff ${dropoffData}`} onClick={toggleDropoffData} >
             Drop Off
           </div>
         </div>

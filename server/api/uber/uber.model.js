@@ -44,7 +44,6 @@ module.exports = {
 					.run(connection)
 					.then(function(cursor) {
 						cursor.toArray(function(err, row) {
-							console.log(err, row)
 							resolve(row);
 						});
 					})
